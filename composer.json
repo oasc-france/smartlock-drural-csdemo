@@ -7,6 +7,6 @@
         }
     ],
     "require": {
-        "oasc-france/fiwoo-device-management-test-sdk-php": "*@dev"
+        "oasc-france/fiwoo-device-management-test-sdk-php": "0.0.1"
     }
 }

@@ -10,7 +10,7 @@ devices.objects.forEach(device => {
     const staticAttributes = {};
     device.static_attributes.forEach(staticAttribute => {
         staticAttributes[staticAttribute.name] = staticAttribute;
-        if (staticAttribute.name === "localizacion") {
+        if (staticAttribute.name === "location") {
             loc = staticAttribute.value.split(",");
         }
     });
@@ -27,13 +27,13 @@ devices.objects.forEach(device => {
         LOCKED: "text-success",
         UNLOCKED: "text-danger"
     }
-    if(staticAttributes.lock_status) {
+    if (staticAttributes.lock_status) {
         h2 = document.createElement("h2");
         h2.innerText = staticAttributes.lock_status.value;
         h2.classList.add(lockStatusClasses[staticAttributes.lock_status.value]);
         container.appendChild(h2);
 
-        if(staticAttributes.lock_status_date) {
+        if (staticAttributes.lock_status_date) {
             p = document.createElement("p");
             p.innerText = staticAttributes.lock_status_date.value;
             container.appendChild(p);

@@ -1,14 +1,12 @@
 <?php
 define("CONSUMER_KEY", "");
 define("CONSUMER_SECRET", "");
-define("OAUTH2_TOKEN_URL", "https://drural-api-manager.oasc.fr:9443/oauth2/token");
 define("EMAIL", "");
 define("PASSWORD", "");
+define("OAUTH2_TOKEN_URL", "https://am.wso2.core.drural-sandbox.eu/oauth2/token");
 
 define("DEVICES_IDS", [
-    "63d7ef32fe7675d7d4ea9960",
-    "63d7ef84fe7675d7d4ea998d",
-    "63d7efd6fe7675d7d4ea99a2",
+    "65733a170521592b0a0fce42"
 ]);
 
 ini_set("display_errors", "1");
@@ -63,7 +61,7 @@ $result = $userApi->loginUser($body);
 define("ACCESS_TOKEN", $result->getObject()->getToken()->getValue());
 
 $devices = [];
-foreach(DEVICES_IDS as $id) {
+foreach (DEVICES_IDS as $id) {
     $devices[] = $devicesApi->readDevice($id, ACCESS_TOKEN)["object"];
 }
 
@@ -78,13 +76,13 @@ $devices = ["objects" => $devices];
 
     <title>dRural API Gateway - PHP SDK example</title>
 
-    <link rel="stylesheet" href="./css/index.css"/>
+    <link rel="stylesheet" href="./css/index.css" />
 
     <!-- Leaflet 1.8.0 -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" />
 
     <!-- Bootstrap 4.6.2 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" />
 </head>
 
 <body>
